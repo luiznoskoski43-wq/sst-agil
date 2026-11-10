@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <title>SST Ágil | Segurança e Melhoria Contínua</title>
+  
+  <!-- Fontes e Tailwind CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+              950: '#0f172a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="h-full font-sans text-slate-800 antialiased flex flex-col selection:bg-brand-600 selection:text-white">
+
+  <!-- Header / Navigation -->
+  <header class="bg-brand-950 text-white border-b border-slate-800 sticky top-0 z-40">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="bg-red-600 text-white p-2 rounded-lg font-black text-xl tracking-wider leading-none shadow-lg shadow-red-600/30">
+          SST
+        </div>
+        <span class="font-bold text-xl tracking-tight text-white">ÁGIL</span>
+      </div>
+      <div class="flex items-center gap-6 text-sm font-medium">
+        <a href="#registrar" class="text-slate-300 hover:text-white transition-colors">Registrar Risco</a>
+        <a href="#painel" class="text-slate-300 hover:text-white transition-colors">Painel SESMT</a>
+        <a href="#qr" class="text-slate-300 hover:text-white transition-colors">Gerar QR Code</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-brand-950 to-slate-900 text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
+    <div class="max-w-4xl mx-auto text-center space-y-4">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-brand-600/20 text-brand-300 border border-brand-500/30">
+        Segurança do trabalho • Melhoria contínua
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+        Zero Papel. <span class="text-brand-600">Linha Rodando.</span>
+      </h1>
+      <p class="text-slate-300 text-lg max-w-2xl mx-auto font-normal">
+        Canal digital para relatar condições inseguras, quase-acidentes, questões ergonômicas ou falhas operacionais diretamente do posto de trabalho.
+      </p>
+      <div class="pt-4">
+        <a href="#registrar" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-semibold rounded-xl text-white bg-brand-600 hover:bg-brand-700 transition shadow-lg shadow-brand-600/30">
+          Registrar Ocorrência Agora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+
+    <!-- Section: Como funciona -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <h2 class="text-2xl font-bold text-slate-900">Como funciona</h2>
+        <p class="text-sm text-slate-500">Fluxo simplificado para identificação e resolução rápida de problemas.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2">
+          <span class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 font-bold flex items-center justify-center text-sm">01</span>
+          <h3 class="font-semibold text-slate-900 text-sm">Registrar</h3>
+          <p class="text-xs text-slate-500">Colaborador informa a situação e anexa foto opcional.</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2">
+          <span class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 font-bold flex items-center justify-center text-sm">02</span>
+          <h3 class="font-semibold text-slate-900 text-sm">Avaliar</h3>
+          <p class="text-xs text-slate-500">O SESMT analisa o relato e categoriza o nível de prioridade.</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2">
+          <span class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 font-bold flex items-center justify-center text-sm">03</span>
+          <h3 class="font-semibold text-slate-900 text-sm">Designar</h3>
+          <p class="text-xs text-slate-500">Atribui um responsável e estabelece o prazo de solução.</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2">
+          <span class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 font-bold flex items-center justify-center text-sm">04</span>
+          <h3 class="font-semibold text-slate-900 text-sm">Tratar</h3>
+          <p class="text-xs text-slate-500">A equipe aplica a ação corretiva ou de prevenção necessária.</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2 col-span-2 md:col-span-1">
+          <span class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 font-bold flex items-center justify-center text-sm">05</span>
+          <h3 class="font-semibold text-slate-900 text-sm">Concluir</h3>
+          <p class="text-xs text-slate-500">Conclusão documentada e atualizada no painel para auditoria.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Form de Registro -->
+    <section id="registrar" class="scroll-mt-20 space-y-4">
+      <div class="border-b border-slate-200 pb-3">
+        <h2 class="text-2xl font-bold text-slate-900">Registrar Ocorrência</h2>
+        <p class="text-sm text-slate-500">Envio direto ao time do SESMT.</p>
+      </div>
+
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+        <form id="reportForm" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="sector" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Setor / Linha *</label>
+              <select id="sector" required class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-600 focus:bg-white outline-none transition">
+                <option value="">Selecione um setor...</option>
+                <option>Linha 1</option>
+                <option>Linha 2</option>
+                <option>Solda</option>
+                <option>Pintura</option>
+                <option>Acabamento</option>
+                <option>Almoxarifado</option>
+                <option>Manutenção</option>
+                <option>Outro</option>
+              </select>
+            </div>
+            <div>
+              <label for="type" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Tipo de Ocorrência *</label>
+              <select id="type" required class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-600 focus:bg-white outline-none transition">
+                <option value="">Selecione o tipo...</option>
+                <option>Condição insegura</option>
+                <option>Quase-acidente</option>
+                <option>Dificuldade ergonômica</option>
+                <option>Falha em equipamento</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="priority" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Prioridade Percebida *</label>
+              <select id="priority" required class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-600 focus:bg-white outline-none transition">
+                <option value="">Selecione a prioridade...</option>
+                <option value="Baixa">Baixa (Pode aguardar planejamento)</option>
+                <option value="Média">Média (Requer atenção em breve)</option>
+                <option value="Alta">Alta (Alto risco ou interrupção)</option>
+              </select>
+            </div>
+            <div>
+              <label for="location" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Posto / Local Específico</label>
+              <input id="location" maxlength="100" placeholder="Ex: Estação 12, lado direito da máquina" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-600 focus:bg-white outline-none transition">
+            </div>
+          </div>
+
+          <div>
+            <label for="description" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Descrição Detalhada *</label>
+            <textarea id="description" rows="4" maxlength="1000" required placeholder="Descreva claramente o que aconteceu, qual o risco detectado ou o que pode ser melhorado..." class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-600 focus:bg-white outline-none transition"></textarea>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="reporter" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Seu Nome (Opcional)</label>
+              <input id="reporter" maxlength="100" placeholder="Deixe em branco se preferir anonimato" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-600 focus:bg-white outline-none transition">
+            </div>
+            <div>
+              <label for="photo" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Anexar Foto (Opcional)</label>
+              <input id="photo" type="file" accept="image/*" capture="environment" class="w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100 transition">
+            </div>
+          </div>
+
+          <div class="p-4 bg-amber-50 border-l-4 border-amber-500 rounded-r-lg space-y-1">
+            <p class="text-xs font-semibold text-amber-900 uppercase">Atenção sobre Risco Imediato</p>
+            <p class="text-xs text-amber-800">
+              Caso identifique <strong>perigo grave e iminente</strong>, realize o paralisação da atividade/isolamento e avise o encarregado imediatamente. Este formulário digital é para gestão e registro continuado.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+            <button id="sendBtn" type="submit" class="w-full sm:w-auto px-8 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm rounded-xl transition shadow-lg shadow-brand-600/20 disabled:opacity-50">
+              Enviar Ocorrência
+            </button>
+            <span id="feedback" class="text-xs font-medium text-slate-600" role="status"></span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Section: Painel Administrativo -->
+    <section id="painel" class="scroll-mt-20 space-y-4">
+      <div class="border-b border-slate-200 pb-3">
+        <h2 class="text-2xl font-bold text-slate-900">Painel SESMT</h2>
+        <p class="text-sm text-slate-500">Gestão e acompanhamento das notificações enviadas.</p>
+      </div>
+
+      <!-- Login Form -->
+      <div id="adminLogin" class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm max-w-xl mx-auto space-y-5">
+        <div class="text-center space-y-1">
+          <h3 class="text-lg font-bold text-slate-900">Acesso Restrito SESMT</h3>
+          <p class="text-xs text-slate-500">Informe a senha de administrador para acessar o painel de ocorrências.</p>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label for="adminPassword" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Senha de Acesso</label>
+            <input id="adminPassword" type="password" autocomplete="current-password" placeholder="••••••••" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-600 focus:bg-white outline-none transition">
+          </div>
+          
+          <button id="loginBtn" type="button" class="w-full py-3 bg-slate-900 hover:bg-black text-white font-semibold text-sm rounded-xl transition shadow">
+            Entrar no Painel
+          </button>
+          <div id="loginFeedback" class="text-xs text-center text-red-600 font-medium" role="status"></div>
+        </div>
+      </div>
+
+      <!-- Dashboard Restrito -->
+      <div id="adminDashboard" class="hidden space-y-6">
+        <!-- Dashboard Metrics -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 border-t-4 border-t-blue-600 shadow-sm">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Total</span>
+            <b id="total" class="block text-3xl font-extrabold text-slate-900 mt-1">0</b>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 border-t-4 border-t-amber-500 shadow-sm">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Pendentes</span>
+            <b id="pending" class="block text-3xl font-extrabold text-amber-600 mt-1">0</b>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 border-t-4 border-t-indigo-500 shadow-sm">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Em Andamento</span>
+            <b id="progress" class="block text-3xl font-extrabold text-indigo-600 mt-1">0</b>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 border-t-4 border-t-emerald-500 shadow-sm">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Concluídos</span>
+            <b id="closed" class="block text-3xl font-extrabold text-emerald-600 mt-1">0</b>
+          </div>
+        </div>
+
+        <!-- Controls and Filters -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+            <h3 class="text-lg font-bold text-slate-900">Registros Recebidos</h3>
+            <div class="flex flex-wrap gap-2">
+              <button id="refreshBtn" type="button" class="px-3 py-1.5 text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition">Atualizar</button>
+              <button id="exportBtn" type="button" class="px-3 py-1.5 text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition">Exportar CSV</button>
+              <button id="backupBtn" type="button" class="px-3 py-1.5 text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition">Backup JSON</button>
+              <button id="logoutBtn" type="button" class="px-3 py-1.5 text-xs font-semibold bg-red-50 hover:bg-red-100 text-red-700 rounded-lg transition">Sair</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label for="filterType" class="block text-xs font-medium text-slate-500 mb-1">Filtrar por Tipo</label>
+              <select id="filterType" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs focus:ring-2 focus:ring-brand-600 outline-none">
+                <option value="">Todos os tipos</option>
+                <option>Condição insegura</option>
+                <option>Quase-acidente</option>
+                <option>Dificuldade ergonômica</option>
+                <option>Falha em equipamento</option>
+              </select>
+            </div>
+            <div>
+              <label for="filterStatus" class="block text-xs font-medium text-slate-500 mb-1">Filtrar por Status</label>
+              <select id="filterStatus" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs focus:ring-2 focus:ring-brand-600 outline-none">
+                <option value="">Todos os status</option>
+                <option>Pendente</option>
+                <option>Em análise</option>
+                <option>Em andamento</option>
+                <option>Concluído</option>
+              </select>
+            </div>
+            <div>
+              <label for="searchRecords" class="block text-xs font-medium text-slate-500 mb-1">Buscar</label>
+              <input id="searchRecords" type="search" placeholder="Buscar palavra-chave..." class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs focus:ring-2 focus:ring-brand-600 outline-none">
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="overflow-x-auto border border-slate-100 rounded-xl">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead class="bg-slate-50 text-slate-500 uppercase tracking-wider font-semibold border-b border-slate-200">
+                <tr>
+                  <th class="p-3">Data</th>
+                  <th class="p-3">Setor / Local</th>
+                  <th class="p-3">Tipo</th>
+                  <th class="p-3">Prioridade</th>
+                  <th class="p-3">Status</th>
+                  <th class="p-3 text-right">Ação</th>
+                </tr>
+              </thead>
+              <tbody id="recordRows" class="divide-y divide-slate-100 text-slate-700">
+                <!-- Preenchido via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Analytical Charts -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <h4 class="text-sm font-bold text-slate-900 border-b border-slate-100 pb-2">Por Setor</h4>
+            <div id="sectorChart" class="space-y-2"></div>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <h4 class="text-sm font-bold text-slate-900 border-b border-slate-100 pb-2">Por Tipo</h4>
+            <div id="typeChart" class="space-y-2"></div>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <h4 class="text-sm font-bold text-slate-900 border-b border-slate-100 pb-2">Registros por Mês</h4>
+            <div id="monthChart" class="space-y-2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal/Details Section -->
+    <section id="detalhes" class="hidden scroll-mt-20">
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-lg space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+          <div>
+            <h3 class="text-xl font-bold text-slate-900">Análise da Ocorrência</h3>
+            <p class="text-xs text-slate-500">Defina tratativas, responsáveis e prazos de resolução.</p>
+          </div>
+          <button id="closeDetail" type="button" class="px-3 py-1.5 text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition">Fechar</button>
+        </div>
+
+        <div id="detailInfo" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+          <!-- Detalhes do registro dinâmico -->
+        </div>
+
+        <div id="photoView" class="space-y-2"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+          <div>
+            <label for="recordStatus" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Status da Trataiva</label>
+            <select id="recordStatus" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-600 outline-none">
+              <option>Pendente</option>
+              <option>Em análise</option>
+              <option>Em andamento</option>
+              <option>Concluído</option>
+            </select>
+          </div>
+          <div>
+            <label for="owner" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Responsável pela Ação</label>
+            <input id="owner" maxlength="120" placeholder="Nome / Departamento responsável" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-600 outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="dueDate" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Prazo Previsto de Conclusão</label>
+            <input id="dueDate" type="date" class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-600 outline-none">
+          </div>
+          <div>
+            <label for="analysisNotes" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Análise Técnica e Providências</label>
+            <textarea id="analysisNotes" rows="3" maxlength="2000" placeholder="Registrar avaliações do SESMT, medidas adotadas e evidências da solução..." class="w-full bg-slate-50 border border-slate-300 text-slate-900 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-600 outline-none"></textarea>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-4">
+          <div class="flex gap-3">
+            <button id="saveAnalysis" type="button" class="px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm rounded-xl transition shadow">Salvar Trataiva</button>
+            <button id="deleteRecord" type="button" class="px-4 py-2.5 bg-red-50 hover:bg-red-100 text-red-600 font-semibold text-sm rounded-xl transition">Excluir Registro</button>
+          </div>
+          <span id="saveFeedback" class="text-xs font-medium text-slate-600" role="status"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: QR Code -->
+    <section id="qr" class="scroll-mt-20">
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">Divulgação nos Postos de Trabalho</h3>
+          <p class="text-xs text-slate-500">Gere um QR Code exclusivo para colar nos painéis das linhas de produção.</p>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center gap-8 bg-slate-50 p-6 rounded-xl border border-slate-100">
+          <div id="qrPreview" class="w-44 h-44 bg-white border-2 border-dashed border-slate-300 rounded-xl flex items-center justify-center p-2 text-center text-xs text-slate-400">
+            QR Code aparecerá aqui
+          </div>
+
+          <div class="flex-1 space-y-4 w-full">
+            <div>
+              <label for="formUrl" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">URL Pública do Sistema</label>
+              <input id="formUrl" type="url" placeholder="https://seu-dominio.com" class="w-full bg-white border border-slate-300 text-slate-900 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-600 outline-none">
+            </div>
+            <button id="makeQr" type="button" class="px-6 py-2.5 bg-slate-900 hover:bg-black text-white font-semibold text-sm rounded-xl transition">
+              Gerar QR Code
+            </button>
+            <p class="text-xs text-slate-500">
+              Certifique-se de que a aplicação está acessível na rede corporativa ou internet antes de distribuir o QR Code aos colaboradores.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brand-950 text-slate-400 py-8 text-center text-xs border-t border-slate-800">
+    <p class="font-medium text-slate-300 mb-1">SST Ágil • Zero Papel, Linha Rodando</p>
+    <p>Segurança se constrói com participação, engajamento e melhoria contínua.</p>
+  </footer>
+
+  <!-- Supabase Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <script>
+    // Supabase Config Configuration
+    const SUPABASE_URL = "COLE_AQUI_A_URL_DO_PROJETO";
+    const SUPABASE_ANON_KEY = "COLE_AQUI_A_CHAVE_PUBLICA";
+    const ADMIN_EMAIL = "luiznoskoski43@gmail.com";
+
+    const supabaseClient = (window.supabase &&
+      SUPABASE_URL.startsWith("https://") &&
+      !SUPABASE_URL.includes("COLE_AQUI") &&
+      SUPABASE_ANON_KEY.length > 20 &&
+      !SUPABASE_ANON_KEY.includes("COLE_AQUI"))
+      ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+      : null;
+
+    const $ = id => document.getElementById(id);
+    let records = [], currentId = null, adminSession = null;
+
+    function esc(v) {
+      return String(v ?? '').replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    function fromDb(r) {
+      return {
+        ...r,
+        createdAt: r.created_at,
+        photoData: r.photo_data,
+        dueDate: r.due_date || '',
+        updatedAt: r.updated_at
+      };
+    }
+
+    function requireConnection() {
+      if (!supabaseClient) {
+        throw new Error("A conexão com o Supabase ainda não foi configurada. Preencha a SUPABASE_URL e SUPABASE_ANON_KEY no código.");
+      }
+    }
+
+    function badgeStatus(s) {
+      const status = s || 'Pendente';
+      let styles = "bg-amber-100 text-amber-800 border-amber-200";
+      if (status === 'Concluído') styles = "bg-emerald-100 text-emerald-800 border-emerald-200";
+      if (status === 'Em andamento' || status === 'Em análise') styles = "bg-indigo-100 text-indigo-800 border-indigo-200";
+      
+      return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${styles}">${esc(status)}</span>`;
+    }
+
+    function badgePriority(p) {
+      let styles = "bg-slate-100 text-slate-700";
+      if (p === 'Média') styles = "bg-orange-100 text-orange-800";
+      if (p === 'Alta') styles = "bg-red-100 text-red-800 font-bold";
+      
+      return `<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${styles}">${esc(p || 'Baixa')}</span>`;
+    }
+
+    function updateStats() {
+      $('total').textContent = records.length;
+      $('pending').textContent = records.filter(r => (r.status || 'Pendente') === 'Pendente').length;
+      $('progress').textContent = records.filter(r => ['Em análise', 'Em andamento'].includes(r.status)).length;
+      $('closed').textContent = records.filter(r => r.status === 'Concluído').length;
+    }
+
+    function renderChart(el, field) {
+      const counts = {};
+      records.forEach(r => {
+        const k = r[field] || 'Não informado';
+        counts[k] = (counts[k] || 0) + 1;
+      });
+      
+      const entries = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+      const max = Math.max(1, ...entries.map(x => x[1]));
+      
+      $(el).innerHTML = entries.length ? entries.map(([k, v]) => `
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs text-slate-600 font-medium">
+            <span class="truncate max-w-[150px]">${esc(k)}</span>
+            <span>${v}</span>
+          </div>
+          <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+            <div class="bg-brand-600 h-full rounded-full" style="width: ${(v / max) * 100}%"></div>
+          </div>
+        </div>
+      `).join('') : '<p class="text-xs text-slate-400">Sem dados registrados.</p>';
+    }
+
+    function renderMonthChart() {
+      const counts = {};
+      records.forEach(r => {
+        const d = new Date(r.createdAt);
+        if (!Number.isNaN(d.getTime())) {
+          const k = d.toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
+          counts[k] = (counts[k] || 0) + 1;
+        }
+      });
+      
+      const entries = Object.entries(counts).slice(-6);
+      const max = Math.max(1, ...entries.map(x => x[1]));
+      
+      $('monthChart').innerHTML = entries.length ? entries.map(([k, v]) => `
+        <div class="space-y-1">
+          <div class="flex justify-between text-xs text-slate-600 font-medium">
+            <span>${esc(k)}</span>
+            <span>${v}</span>
+          </div>
+          <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+            <div class="bg-indigo-600 h-full rounded-full" style="width: ${(v / max) * 100}%"></div>
+          </div>
+        </div>
+      `).join('') : '<p class="text-xs text-slate-400">Sem dados registrados.</p>';
+    }
+
+    async function loadRecords() {
+      requireConnection();
+      const { data, error } = await supabaseClient.from('ocorrencias').select('*').order('created_at', { ascending: false });
+      if (error) throw error;
+      records = (data || []).map(fromDb);
+    }
+
+    async function render() {
+      try {
+        await loadRecords();
+        updateStats();
+        
+        const q = $('searchRecords').value.toLocaleLowerCase('pt-BR');
+        const t = $('filterType').value;
+        const s = $('filterStatus').value;
+
+        const list = records.filter(r => 
+          (!t || r.type === t) &&
+          (!s || (r.status || 'Pendente') === s) &&
+          (!q || [r.sector, r.location, r.description, r.reporter, r.owner].join(' ').toLocaleLowerCase('pt-BR').includes(q))
+        );
+
+        $('recordRows').innerHTML = list.length ? list.map(r => `
+          <tr class="hover:bg-slate-50 transition border-b border-slate-100">
+            <td class="p-3 text-slate-500">${new Date(r.createdAt).toLocaleString('pt-BR')}</td>
+            <td class="p-3">
+              <div class="font-semibold text-slate-900">${esc(r.sector)}</div>
+              <div class="text-slate-400 text-[11px]">${esc(r.location || 'Sem local exato')}</div>
+            </td>
+            <td class="p-3 font-medium">${esc(r.type)}</td>
+            <td class="p-3">${badgePriority(r.priority)}</td>
+            <td class="p-3">${badgeStatus(r.status)}</td>
+            <td class="p-3 text-right">
+              <button class="text-brand-600 hover:text-brand-800 font-semibold text-xs" data-open="${esc(r.id)}">Analise / Tratar</button>
+            </td>
+          </tr>
+        `).join('') : `
+          <tr>
+            <td colspan="6" class="text-center text-slate-400 py-8">Nenhuma ocorrência encontrada.</td>
+          </tr>
+        `;
+
+        renderChart('sectorChart', 'sector');
+        renderChart('typeChart', 'type');
+        renderMonthChart();
+
+      } catch (err) {
+        $('recordRows').innerHTML = `<tr><td colspan="6" class="text-red-600 p-4">${esc(err.message || 'Erro ao carregar registros.')}</td></tr>`;
+      }
+    }
+
+    // Compress Image before upload to optimize Supabase Storage/Payload
+    function compressImage(file, maxWidth = 1024, quality = 0.7) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = event => {
+          const img = new Image();
+          img.src = event.target.result;
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            let width = img.width;
+            let height = img.height;
+
+            if (width > maxWidth) {
+              height = Math.round((height * maxWidth) / width);
+              width = maxWidth;
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            resolve(canvas.toDataURL('image/jpeg', quality));
+          };
+          img.onerror = error => reject(error);
+        };
+        reader.onerror = error => reject(error);
+      });
+    }
+
+    function toggleAdmin(active) {
+      $('adminLogin').classList.toggle('hidden', active);
+      $('adminDashboard').classList.toggle('hidden', !active);
+      if (!active) {
+        $('detalhes').classList.add('hidden');
+        currentId = null;
+      } else {
+        render();
+      }
+    }
+
+    // Event Listeners
+    $('reportForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const btn = $('sendBtn');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      $('feedback').textContent = '';
+
+      try {
+        requireConnection();
+        const file = $('photo').files[0];
+        let photoData = null;
+
+        if (file) {
+          if (file.size > 10 * 1024 * 1024) throw new Error('A imagem deve ter no máximo 10MB.');
+          photoData = await compressImage(file);
+        }
+
+        const payload = {
+          sector: $('sector').value,
+          type: $('type').value,
+          priority: $('priority').value,
+          location: $('location').value.trim(),
+          description: $('description').value.trim(),
+          reporter: $('reporter').value.trim(),
+          photo_data: photoData,
+          status: 'Pendente'
+        };
+
+        const { error } = await supabaseClient.from('ocorrencias').insert(payload);
+        if (error) throw error;
+
+        $('reportForm').reset();
+        $('feedback').className = "text-xs font-medium text-emerald-600";
+        $('feedback').textContent = 'Ocorrência registrada com sucesso! O SESMT já recebeu seu relato.';
+      } catch (err) {
+        $('feedback').className = "text-xs font-medium text-red-600";
+        $('feedback').textContent = err.message || 'Falha ao enviar ocorrência.';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Enviar Ocorrência';
+      }
+    });
+
+    $('loginBtn').onclick = async () => {
+      $('loginFeedback').textContent = '';
+      try {
+        requireConnection();
+        $('loginBtn').disabled = true;
+        
+        const password = $('adminPassword').value;
+        if (!password) {
+          throw new Error('Por favor, informe a senha de acesso.');
+        }
+
+        const { data, error } = await supabaseClient.auth.signInWithPassword({
+          email: ADMIN_EMAIL,
+          password: password
+        });
+
+        if (error) throw error;
+
+        adminSession = data.session;
+        $('adminPassword').value = '';
+        toggleAdmin(true);
+
+      } catch (err) {
+        $('loginFeedback').textContent = err.message || 'Senha incorreta ou falha na autenticação.';
+        if (supabaseClient) await supabaseClient.auth.signOut().catch(() => {});
+      } finally {
+        $('loginBtn').disabled = false;
+      }
+    };
+
+    $('adminPassword').onkeydown = e => { if (e.key === 'Enter') $('loginBtn').click(); };
+    $('logoutBtn').onclick = async () => {
+      if (supabaseClient) await supabaseClient.auth.signOut();
+      adminSession = null;
+      toggleAdmin(false);
+    };
+
+    $('refreshBtn').onclick = render;
+    ['filterType', 'filterStatus'].forEach(id => $(id).onchange = render);
+    $('searchRecords').oninput = render;
+
+    $('recordRows').onclick = e => {
+      const b = e.target.closest('[data-open]');
+      if (b) openRecord(b.dataset.open);
+    };
+
+    function openRecord(id) {
+      const r = records.find(x => String(x.id) === String(id));
+      if (!r) return;
+
+      currentId = id;
+      $('detalhes').classList.remove('hidden');
+      $('detalhes').scrollIntoView({ behavior: 'smooth' });
+
+      const items = [
+        ['Data', new Date(r.createdAt).toLocaleString('pt-BR')],
+        ['Setor', r.sector],
+        ['Localização', r.location || 'Não especificado'],
+        ['Tipo', r.type],
+        ['Prioridade', r.priority],
+        ['Status Atual', r.status || 'Pendente'],
+        ['Relatado por', r.reporter || 'Anônimo'],
+        ['Descrição', r.description]
+      ];
+
+      $('detailInfo').innerHTML = items.map(([title, val]) => `
+        <div class="p-2">
+          <small class="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">${esc(title)}</small>
+          <strong class="text-xs text-slate-800 break-words">${esc(val)}</strong>
+        </div>
+      `).join('');
+
+      $('photoView').innerHTML = r.photoData ? `
+        <div class="mt-2 space-y-2">
+          <a href="${r.photoData}" target="_blank" rel="noopener" class="text-xs text-brand-600 hover:underline font-semibold">🔍 Visualizar imagem em tamanho real</a>
+          <div>
+            <img src="${r.photoData}" alt="Evidência anexa" class="max-h-60 rounded-xl border border-slate-200 object-contain bg-slate-50">
+          </div>
+        </div>
+      ` : '<p class="text-xs text-slate-400 italic">Sem foto anexada.</p>';
+
+      $('recordStatus').value = r.status || 'Pendente';
+      $('owner').value = r.owner || '';
+      $('dueDate').value = r.dueDate || '';
+      $('analysisNotes').value = r.analysis || '';
+      $('saveFeedback').textContent = '';
+    }
+
+    $('saveAnalysis').onclick = async () => {
+      if (!currentId) return;
+      const btn = $('saveAnalysis');
+      btn.disabled = true;
+      try {
+        requireConnection();
+        const changes = {
+          status: $('recordStatus').value,
+          owner: $('owner').value.trim(),
+          due_date: $('dueDate').value || null,
+          analysis: $('analysisNotes').value.trim(),
+          updated_at: new Date().toISOString()
+        };
+
+        const { error } = await supabaseClient.from('ocorrencias').update(changes).eq('id', currentId);
+        if (error) throw error;
+
+        $('saveFeedback').className = "text-xs font-medium text-emerald-600";
+        $('saveFeedback').textContent = 'Tratativa atualizada!';
+        await render();
+        openRecord(currentId);
+      } catch (err) {
+        $('saveFeedback').className = "text-xs font-medium text-red-600";
+        $('saveFeedback').textContent = err.message || 'Erro ao salvar.';
+      } finally {
+        btn.disabled = false;
+      }
+    };
+
+    $('closeDetail').onclick = () => {
+      $('detalhes').classList.add('hidden');
+      currentId = null;
+    };
+
+    $('deleteRecord').onclick = async () => {
+      if (!currentId) return;
+      if (!confirm('Deseja realmente excluir permanentemente este registro?')) return;
+      
+      try {
+        requireConnection();
+        const { error } = await supabaseClient.from('ocorrencias').delete().eq('id', currentId);
+        if (error) throw error;
+
+        $('detalhes').classList.add('hidden');
+        currentId = null;
+        await render();
+      } catch (err) {
+        alert(err.message || 'Erro ao excluir.');
+      }
+    };
+
+    $('backupBtn').onclick = async () => {
+      try {
+        await loadRecords();
+        const data = JSON.stringify(records, null, 2);
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([data], { type: 'application/json' }));
+        a.download = `backup_sst_agil_${new Date().toISOString().slice(0, 10)}.json`;
+        a.click();
+      } catch (err) {
+        alert(err.message || 'Erro ao exportar backup.');
+      }
+    };
+
+    $('exportBtn').onclick = async () => {
+      try {
+        await loadRecords();
+        if (!records.length) return alert('Sem registros para exportar.');
+        
+        const rows = [
+          ['Data', 'Setor', 'Local', 'Tipo', 'Prioridade', 'Descrição', 'Status', 'Responsável', 'Prazo', 'Análise'],
+          ...records.map(r => [
+            new Date(r.createdAt).toLocaleString('pt-BR'),
+            r.sector, r.location, r.type, r.priority, r.description, r.status, r.owner, r.dueDate, r.analysis
+          ])
+        ];
+
+        const csv = rows.map(row => row.map(v => `"${String(v ?? '').replace(/"/g, '""')}"`).join(';')).join('\n');
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' }));
+        a.download = `relatorio_sst_${new Date().toISOString().slice(0,10)}.csv`;
+        a.click();
+      } catch (err) {
+        alert(err.message || 'Erro na exportação.');
+      }
+    };
+
+    $('makeQr').onclick = () => {
+      const u = $('formUrl').value.trim();
+      if (!/^https:\/\/.+/i.test(u)) return alert('Insira uma URL válida que inicie com https://');
+      
+      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(u + '#registrar')}`;
+      
+      $('qrPreview').innerHTML = `
+        <div class="space-y-3">
+          <img src="${qrUrl}" alt="QR Code SST Ágil" class="w-32 h-32 mx-auto rounded-lg shadow-sm border border-slate-200">
+          <a href="${qrUrl}" target="_blank" download="qrcode_sst.png" class="block text-xs font-semibold text-brand-600 hover:underline">Download do QR Code</a>
+        </div>
+      `;
+    };
+
+    // Auto Check Session on start
+    if (supabaseClient) {
+      supabaseClient.auth.getSession().then(({ data }) => {
+        if (data && data.session) {
+          adminSession = data.session;
+          toggleAdmin(true);
+        } else {
+          toggleAdmin(false);
+        }
+      });
+    } else {
+      toggleAdmin(false);
+    }
+  </script>
+</body>
+</html>
